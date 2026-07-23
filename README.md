@@ -10,7 +10,7 @@ A Spring Boot microservices system that lets a customer **find a charging statio
 
 ---
 
-## 📖 Table of Contents
+## 📖 Table of Contents 
 
 1. [Overview](#-overview)
 2. [Architecture](#-architecture)
