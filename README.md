@@ -410,58 +410,42 @@ curl -X GET http://localhost:8084/payments
 
 ---
 
-## 🐞 Known Issues & Improvements
-
-These are real gaps found while reviewing the codebase — worth fixing before a production rollout:
-
-| Area | Issue | Suggested Fix |
-|------|-------|----------------|
-| **Gateway ↔ Payment routing** | Gateway routes `/payments/**` to port `8084`, but `PaymentController` is mapped at `/api/payments`, and the Charging Session Service calls `http://localhost:8084/payments/generate` (missing `/api` prefix) | Standardize on one base path (`/payments` everywhere) across the gateway route, controller `@RequestMapping`, and the internal `RestTemplate` call |
-| **Booking entity annotations** | `BookingService`'s `entity` package defines its **own** `@Entity` and `@GeneratedValue` annotations, which shadow the real `jakarta.persistence` ones — so `Booking` is not actually managed as a JPA entity with auto ID generation | Remove the custom `Entity.java` / `GeneratedValue.java` files and import `jakarta.persistence.Entity` / `GenerationType.IDENTITY` directly |
-| **Service discovery** | All inter-service URLs are hardcoded (`localhost:8081`, etc.) | Introduce **Eureka / Consul** for service discovery instead of hardcoded hosts |
-| **Resilience** | No retries, circuit breakers, or timeouts on the `RestTemplate` calls between Session → Booking/Station/Payment | Add **Resilience4j** (circuit breaker + retry) around inter-service calls |
-| **Security** | No authentication/authorization on any endpoint | Add JWT-based auth at the API Gateway (Spring Cloud Gateway filter) |
-| **Config duplication** | H2 console properties left over in `BookingService` even though it uses MySQL | Clean up unused `application.properties` entries |
-| **Async communication** | Session → Payment call is synchronous and blocking | Consider Kafka/RabbitMQ events for payment generation to decouple services |
-
----
-
 
 ## Output
 ### Postman
-### ChargingStationService
+#### ChargingStationService
 
 <img width="1087" height="1022" alt="Screenshot 2026-07-23 142508" src="https://github.com/user-attachments/assets/ba062820-0dc4-4991-a9e3-8ee94728f600" />
 
-### BookingServive
+#### BookingServive
 
 <img width="1082" height="1035" alt="Screenshot 2026-07-23 142534" src="https://github.com/user-attachments/assets/542fad5d-336e-4130-b4c5-add0c2cab556" />
 
-### ChargingSessionService
+#### ChargingSessionService
 
 <img width="1088" height="957" alt="Screenshot 2026-07-23 142600" src="https://github.com/user-attachments/assets/9c52f68f-c0ac-4ead-aee1-c59f988c775f" />
 <img width="1078" height="1002" alt="Screenshot 2026-07-23 142626" src="https://github.com/user-attachments/assets/e0b02f87-4d18-44bf-8e32-7b7ff68b0de4" />
 
-### PaymentService
+#### PaymentService
 
 <img width="1087" height="987" alt="Screenshot 2026-07-23 142648" src="https://github.com/user-attachments/assets/fc7a2903-049a-45ac-afe8-70133ae2c982" />
 <img width="1091" height="1006" alt="Screenshot 2026-07-23 142704" src="https://github.com/user-attachments/assets/f761d00a-ddbe-41f5-8250-91b995b32381" />
 
 ### H2 Console
 
-### ChargingStationService
+#### ChargingStationService
 
 <img width="1917" height="512" alt="image" src="https://github.com/user-attachments/assets/d1553cb8-bb03-41bd-bb13-3a45e95330ce" />
 
-### BookingService
+#### BookingService
 
 <img width="1910" height="567" alt="image" src="https://github.com/user-attachments/assets/1c07930f-d956-4d47-a1a5-2cdfd3778e80" />
 
-### ChargingSessionService
+#### ChargingSessionService
 
 <img width="1917" height="627" alt="image" src="https://github.com/user-attachments/assets/8ba1b11a-eca2-438d-ac29-60f78219a20d" />
 
-### PaymentService
+#### PaymentService
 
 <img width="1917" height="631" alt="image" src="https://github.com/user-attachments/assets/ce2a0839-c772-4275-bd10-239f91a3831f" />
 
