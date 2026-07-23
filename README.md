@@ -449,5 +449,25 @@ These are real gaps found while reviewing the codebase — worth fixing before a
 
 ### H2 Console
 
+### ChargingStationService
+
+<img width="1917" height="512" alt="image" src="https://github.com/user-attachments/assets/d1553cb8-bb03-41bd-bb13-3a45e95330ce" />
+
+### BookingService
+
+<img width="1910" height="567" alt="image" src="https://github.com/user-attachments/assets/1c07930f-d956-4d47-a1a5-2cdfd3778e80" />
+
+### ChargingSessionService
+
+<img width="1917" height="627" alt="image" src="https://github.com/user-attachments/assets/8ba1b11a-eca2-438d-ac29-60f78219a20d" />
+
+### PaymentService
+
+<img width="1917" height="631" alt="image" src="https://github.com/user-attachments/assets/ce2a0839-c772-4275-bd10-239f91a3831f" />
+
+
+
+
+
 
 
