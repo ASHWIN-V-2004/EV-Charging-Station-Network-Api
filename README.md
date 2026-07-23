@@ -22,7 +22,7 @@ A Spring Boot microservices system that lets a customer **find a charging statio
 8. [API Reference](#-api-reference)
 9. [Postman Collection](#-postman-collection--sample-requests)
 10. [Known Issues & Improvements](#-known-issues--improvements)
-11. [Roadmap](#-roadmap)
+
 
 ---
 
@@ -430,13 +430,20 @@ These are real gaps found while reviewing the codebase — worth fixing before a
 ## Output
 ### Postman
 ### ChargingStationService
+
 <img width="1087" height="1022" alt="Screenshot 2026-07-23 142508" src="https://github.com/user-attachments/assets/ba062820-0dc4-4991-a9e3-8ee94728f600" />
+
 ### BookingServive
+
 <img width="1082" height="1035" alt="Screenshot 2026-07-23 142534" src="https://github.com/user-attachments/assets/542fad5d-336e-4130-b4c5-add0c2cab556" />
+
 ### ChargingSessionService
+
 <img width="1088" height="957" alt="Screenshot 2026-07-23 142600" src="https://github.com/user-attachments/assets/9c52f68f-c0ac-4ead-aee1-c59f988c775f" />
 <img width="1078" height="1002" alt="Screenshot 2026-07-23 142626" src="https://github.com/user-attachments/assets/e0b02f87-4d18-44bf-8e32-7b7ff68b0de4" />
+
 ### PaymentService
+
 <img width="1087" height="987" alt="Screenshot 2026-07-23 142648" src="https://github.com/user-attachments/assets/fc7a2903-049a-45ac-afe8-70133ae2c982" />
 <img width="1091" height="1006" alt="Screenshot 2026-07-23 142704" src="https://github.com/user-attachments/assets/f761d00a-ddbe-41f5-8250-91b995b32381" />
 
